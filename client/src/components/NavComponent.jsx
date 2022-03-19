@@ -11,7 +11,7 @@ export default function NavComponent() {
             Home
           </Link>
           <Link className="navLinks" to="pingala">
-            Pingala
+            Pingala Cafe
           </Link>
           <Link className="navLinks" to="hen-of-the-wood">
             Hen of the Wood

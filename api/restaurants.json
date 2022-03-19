@@ -4,8 +4,9 @@
         "name": "Pingala Cafe",
         "cuisine": "Vegan",
         "address": "1 Mill St, Burlington, VT 05401",
-        "latitude and longitude": "44.4884, -73.1852",
-        "phone number": "(802) 540-0110",
+        "latitude": "44.4884",
+        "longitude": "-73.1852",
+        "phone": "(802) 540-0110",
         "hours": "Everday: 10am - 4pm",
         "about": "Pingala makes good vegan food!"
 
@@ -16,8 +17,9 @@
         "name": "Hen of the Wood",
         "cuisine": "Fancy Farm to Table",
         "address": "55 Cherry St, Burlington, VT 05401",
-        "latitude and longitude": "44.47912, -73.21765",
-        "phone number": "(802) 540-0534",
+        "latitude": "44.47912",
+        "longitude": "-73.21765",
+        "phone": "(802) 540-0534",
         "hours": "5pm - 10pm, Closed Tuesday",
         "about": "Hen of the Wood makes good, fancy food!"
 
@@ -28,8 +30,9 @@
         "name": "Nomad Coffee",
         "cuisine": "Coffee Shop",
         "address": "208 Flynn Avenue #3i, Burlington, VT 05401",
-        "latitude and longitude": "44.475883, -73.212074",
-        "phone number": "(802) 860-1111",
+        "latitude": "44.475883", 
+        "longitude": "-73.212074",
+        "phone": "(802) 860-1111",
         "hours": "8am - 3pm, Closed Monday",
         "about": "Nomad makes good coffee and pastries!"
 
@@ -40,8 +43,9 @@
         "name": "Dobra Tea",
         "cuisine": "Tea Shop",
         "address": "125 S Winooski Ave, Burlington, VT 05401",
-        "latitude and longitude": "44.4768036, -73.2113523",
-        "phone number": "(802) 951-2424",
+        "latitude": "44.4768036", 
+        "longitude": "-73.2113523",
+        "phone": "(802) 951-2424",
         "hours": "Everyday: 12pm - 7pm",
         "about": "Dobra makes good tea!"
 
@@ -52,8 +56,9 @@
         "name": "Farmhouse Tap & Grill",
         "cuisine": "Not as Fancy Farm to Table",
         "address": "160 Bank St, Burlington, VT 05401",
-        "latitude and longitude": "44.478344, -73.21319",
-        "phone number": "(802) 859-0888",
+        "latitude": "44.478344", 
+        "longitude": "-73.21319",
+        "phone": "(802) 859-0888",
         "hours": "Everyday: 11:30am - 10pm",
         "about": "Farmhouse Tap & Grill makes good food!"
 
