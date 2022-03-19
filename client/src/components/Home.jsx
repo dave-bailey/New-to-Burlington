@@ -1,6 +1,5 @@
 import React from "react";
 import Map from "./Map.js";
-import "./Home.css"
 
 
 export default function NavComponent() {

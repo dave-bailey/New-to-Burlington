@@ -13,7 +13,7 @@ export default function Restaurants(props) {
       <>
       <div id="restaurantsBody" >
         
-        <div> {props.name} </div>
+        <h1 id="restaurantHeader"> {props.name} </h1>
 
         <MapContainer
         center={ props.center }
@@ -34,12 +34,13 @@ export default function Restaurants(props) {
       </MapContainer>
 
 
-
-        <div> {props.cuisine} </div>
-        <div> {props.address} </div>
-        <div> {props.phone} </div>
-        <div> {props.hours} </div>
-        <div> {props.about} </div>
+        <div id="container">
+        <div> {`Cuisine: ${props.cuisine} `} </div>
+        <div> {`Address: ${props.address} `} </div>
+        <div> {`Phone Number: ${props.phone} `} </div>
+        <div> {`Business Hours: ${props.hours} `} </div>
+        <div> {`About: ${props.about} `} </div>
+        </div>
         
       </div>
       </>

@@ -8,7 +8,7 @@ export default function FooterComponent() {
       <footer id="footer">
         <div id="footerBox">
           
-        <h1>Footer</h1>
+        <h1>They're All Great Restaurants!</h1>
            
             
         </div>

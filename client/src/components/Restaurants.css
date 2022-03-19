@@ -1,4 +1,25 @@
 #restaurantsBody {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    border: 2px solid red;
+#restaurantHeader {
+    font-size: 48px;
+    margin-bottom: 16px;
+
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container > div {
+    font-size: 16px;
+    margin: 8px 0 8px 0;
 }
