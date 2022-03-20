@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* nav bar flex boxes and styling */
+
 nav {
   display: flex;
   justify-content: space-between;

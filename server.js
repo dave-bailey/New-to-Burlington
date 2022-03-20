@@ -14,8 +14,9 @@ app.use(express.json());
 //allows us to understand urlenconded payload
 app.use(express.urlencoded({ extended: true }));
 
+
+//sends restaurant json as response
 app.get("/", (request, response) => {
-  console.log(request);
   response.json(restaurants);
 });
 

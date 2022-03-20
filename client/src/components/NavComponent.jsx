@@ -1,6 +1,8 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./NavComponent.css";
+
+//Nav bar with router links
 
 export default function NavComponent() {
   return (

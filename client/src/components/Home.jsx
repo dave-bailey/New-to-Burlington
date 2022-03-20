@@ -1,8 +1,9 @@
 import React from "react";
 import Map from "./Map.js";
 
+//Home page - header and renders map component with burlington coordinates
 
-export default function NavComponent() {
+export default function Home() {
   return (
     <>
       <div id="homeBody">
