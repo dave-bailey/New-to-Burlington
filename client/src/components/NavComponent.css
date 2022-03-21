@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 /* nav bar flex boxes and styling */
 
@@ -15,7 +15,8 @@ nav {
 }
 
 .navLinks {
-  font-family: 'Bebas Neue', cursive;  font-size: 1.6rem;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.6rem;
   padding: 3vw;
   text-decoration: none;
   text-align: center;

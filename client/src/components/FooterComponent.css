@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 /* footer flex boxes and styling */
 
-
 footer {
-  font-family: 'Bebas Neue', cursive;  
+  font-family: "Bebas Neue", cursive;
   font-size: 1.6rem;
   display: flex;
 }
-
 
 #footerBox {
   display: flex;
@@ -16,5 +14,3 @@ footer {
   justify-content: center;
   width: 100vw;
 }
-
-

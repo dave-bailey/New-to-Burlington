@@ -4,7 +4,6 @@ import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 import "./Map.css";
 
 function Map(props) {
-
   // Home page map, has restaurant data coordinates for markers. Markers have restaurant name-link
 
   //props coming in from home component - just for style
@@ -20,7 +19,7 @@ function Map(props) {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-      
+
         {/* restaurant */}
         <Marker id="pingala" position={[44.4884, -73.1852]}>
           <Popup>

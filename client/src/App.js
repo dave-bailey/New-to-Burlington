@@ -11,11 +11,8 @@ import FooterComponent from "./components/FooterComponent.jsx";
 //CSS
 import "./App.css";
 
-
 function App() {
-
   //state for json data
-
 
   /*
   
@@ -49,10 +46,9 @@ function App() {
       <NavComponent />
 
       {/*  Routes with restaurant rendering with props data */}
-      
+
       <Routes>
         <Route path="/">
-
           {/*  Home Render */}
           <Route index element={<Home />} />
 
@@ -74,7 +70,7 @@ function App() {
               />
             }
           />
-          
+
           {/* Restaurant  #2 */}
           <Route
             path="hen-of-the-wood"
@@ -152,7 +148,7 @@ function App() {
           />
         </Route>
       </Routes>
-        
+
       {/*  Footer Render */}
       <FooterComponent />
     </>
