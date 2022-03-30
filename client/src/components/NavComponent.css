@@ -12,6 +12,7 @@ nav {
 
 #navGroup {
   display: flex;
+  list-style-type: none;
 }
 
 .navLinks {

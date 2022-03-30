@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": "pingala",
     "name": "Pingala Cafe",
     "cuisine": "Vegan",
     "address": "1 Mill St, Burlington, VT 05401",
@@ -12,7 +12,7 @@
   },
 
   {
-    "id": "2",
+    "id": "hen-of-the-wood",
     "name": "Hen of the Wood",
     "cuisine": "Fancy Farm to Table",
     "address": "55 Cherry St, Burlington, VT 05401",
@@ -24,7 +24,7 @@
   },
 
   {
-    "id": "3",
+    "id": "nomad-coffee",
     "name": "Nomad Coffee",
     "cuisine": "Coffee Shop",
     "address": "208 Flynn Avenue #3i, Burlington, VT 05401",
@@ -36,7 +36,7 @@
   },
 
   {
-    "id": "4",
+    "id": "dobra-tea",
     "name": "Dobra Tea",
     "cuisine": "Tea Shop",
     "address": "125 S Winooski Ave, Burlington, VT 05401",
@@ -48,7 +48,7 @@
   },
 
   {
-    "id": "5",
+    "id": "farmhouse-tap-and-grill",
     "name": "Farmhouse Tap & Grill",
     "cuisine": "Not as Fancy Farm to Table",
     "address": "160 Bank St, Burlington, VT 05401",

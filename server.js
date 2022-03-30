@@ -14,9 +14,21 @@ app.use(express.json());
 //allows us to understand urlenconded payload
 app.use(express.urlencoded({ extended: true }));
 
-//sends restaurant json as response
+
 app.get("/", (request, response) => {
-  response.json(restaurants);
+
+  return response.json(restaurants);
+})
+
+//sends restaurant json as response
+app.get("/:id", (request, response) => {
+
+  let paramsId = request.params['id'];
+
+let restaurantData = restaurants.filter((restaurants) => { 
+  return restaurants.id === paramsId });
+
+  response.json(restaurantData);
 });
 
 app.listen(port, () => {

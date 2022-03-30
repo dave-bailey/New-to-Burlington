@@ -1,6 +1,8 @@
 //Methods
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Marker, Popup } from "react-leaflet";
 
 //Components
 import Restaurants from "./components/Restaurants.jsx";
@@ -12,143 +14,71 @@ import FooterComponent from "./components/FooterComponent.jsx";
 import "./App.css";
 
 function App() {
-  //state for json data
+  const [restaurants, setRestaurants] = useState([]);
 
-  /*
-  
-  NOTES ON WEIRD BROKEN STUFF 
-
-  1. When I refresh on a restaurant page it breaks. If you click through everything from the home page it is happy and the home page will refresh. If you write in hard values or use a variable that is set to data on this app page it works and refreshes, but it can't fetch data for a refresh of the map. The latt & long data comes back as undefined. If I comment out the map in the restaurant component the header and other div data will refresh and re-render. Not sure if this is a leaflet issue or an issue with my code. But it ain't happy with something.
-
-  2. My state is doing a weird thing too. I currently have my initial value set to null as a string. Anything but a string with text in it will break my app: empty object, empty string, empty array, a number, a boolean.. you name it...it breaks it, but a string works. I have no idea why. 
-
-  */
-
-  const [restaurantList, setRestaurantList] = useState("null");
-
-  //runs fetch and sets state
   useEffect(() => {
-    let fetchData = async () => {
-      const response = await fetch("http://localhost:8080", {
-        headers: { "Access-Control-Allow-Origin": "*" },
-      });
-      const restaurants = await response.json();
+    let isConnectedToServer = true;
 
-      setRestaurantList(restaurants);
+    async function getData() {
+      let response = await fetch(`http://localhost:8080/`);
+
+      response = await response.json();
+
+      setRestaurants(response);
+    }
+    if (isConnectedToServer) {
+      getData();
+    }
+
+    // cleanup function to stop getData from running more than needed
+    return () => {
+      isConnectedToServer = false;
     };
-    //calling fetch
-    fetchData();
   }, []);
+
+  const navList = restaurants?.map((navLink, index) => {
+    return (
+      <li key={`navLink-${index}`}>
+        <Link className="navLinks" to={navLink.id}>
+          {navLink.name}
+        </Link>
+      </li>
+    );
+  });
+
+  //mapping over state to create list of restaurant markers for each restaurant instance
+  const markerList = restaurants?.map((restaurant, index) => {
+    return (
+      <li key={`restaurants-${index}`}>
+        <Marker
+          id={restaurant.id}
+          position={[restaurant.latitude, restaurant.longitude]}
+        >
+          <Popup>
+            <Link className="navLinks" to={restaurant.id}>
+              {`${restaurant.name}!`}
+            </Link>
+          </Popup>
+        </Marker>
+      </li>
+    );
+  });
 
   return (
     <>
       {/*  Rendering Nav */}
-      <NavComponent />
-
-      {/*  Routes with restaurant rendering with props data */}
-
+      <NavComponent navList={navList} />
       <Routes>
         <Route path="/">
           {/*  Home Render */}
-          <Route index element={<Home />} />
-
-          {/* Restaurant  #1 */}
+          <Route index element={<Home markerList={markerList} />} />
+          {/*  Restaurant Render off Params */}
           <Route
-            path="pingala"
-            element={
-              <Restaurants
-                name={restaurantList[0]?.name}
-                cuisine={restaurantList[0]?.cuisine}
-                address={restaurantList[0]?.address}
-                phone={restaurantList[0]?.phone}
-                hours={restaurantList[0]?.hours}
-                about={restaurantList[0]?.about}
-                center={[
-                  restaurantList[0]?.latitude,
-                  restaurantList[0]?.longitude,
-                ]}
-              />
-            }
-          />
-
-          {/* Restaurant  #2 */}
-          <Route
-            path="hen-of-the-wood"
-            element={
-              <Restaurants
-                name={restaurantList[1].name}
-                cuisine={restaurantList[1]?.cuisine}
-                address={restaurantList[1]?.address}
-                phone={restaurantList[1]?.phone}
-                hours={restaurantList[1]?.hours}
-                about={restaurantList[1]?.about}
-                center={[
-                  restaurantList[1]?.latitude,
-                  restaurantList[1]?.longitude,
-                ]}
-              />
-            }
-          />
-
-          {/* Restaurant  #3 */}
-          <Route
-            path="nomad-coffee"
-            element={
-              <Restaurants
-                name={restaurantList[2]?.name}
-                cuisine={restaurantList[2]?.cuisine}
-                address={restaurantList[2]?.address}
-                phone={restaurantList[2]?.phone}
-                hours={restaurantList[2]?.hours}
-                about={restaurantList[2]?.about}
-                center={[
-                  restaurantList[2]?.latitude,
-                  restaurantList[2]?.longitude,
-                ]}
-              />
-            }
-          />
-
-          {/* Restaurant  #4 */}
-          <Route
-            path="dobra-tea"
-            element={
-              <Restaurants
-                name={restaurantList[3]?.name}
-                cuisine={restaurantList[3]?.cuisine}
-                address={restaurantList[3]?.address}
-                phone={restaurantList[3]?.phone}
-                hours={restaurantList[3]?.hours}
-                about={restaurantList[3]?.about}
-                center={[
-                  restaurantList[3]?.latitude,
-                  restaurantList[3]?.longitude,
-                ]}
-              />
-            }
-          />
-
-          {/* Restaurant  #5 */}
-          <Route
-            path="farmhouse-tap-and-grill"
-            element={
-              <Restaurants
-                name={restaurantList[4]?.name}
-                cuisine={restaurantList[4]?.cuisine}
-                address={restaurantList[4]?.address}
-                phone={restaurantList[4]?.phone}
-                hours={restaurantList[4]?.hours}
-                about={restaurantList[4]?.about}
-                center={[
-                  restaurantList[4]?.latitude,
-                  restaurantList[4]?.longitude,
-                ]}
-              />
-            }
+            path="/:id"
+            element={<Restaurants restaurants={restaurants} />}
           />
         </Route>
       </Routes>
-
       {/*  Footer Render */}
       <FooterComponent />
     </>
