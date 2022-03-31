@@ -8,10 +8,10 @@ import { Marker, Popup } from "react-leaflet";
 import Restaurants from "./components/Restaurants.jsx";
 import Home from "./components/Home.jsx";
 import NavComponent from "./components/NavComponent.jsx";
-import FooterComponent from "./components/FooterComponent.jsx";
 
 //CSS
 import "./App.css";
+import "./normalizer.css"
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
@@ -38,8 +38,8 @@ function App() {
 
   const navList = restaurants?.map((navLink, index) => {
     return (
-      <li key={`navLink-${index}`}>
-        <Link className="navLinks" to={navLink.id}>
+      <li className="navLinks" key={`navLink-${index}`}>
+        <Link to={navLink.id}>
           {navLink.name}
         </Link>
       </li>
@@ -66,8 +66,12 @@ function App() {
 
   return (
     <>
+      <div className="appBody">
       {/*  Rendering Nav */}
-      <NavComponent navList={navList} />
+      {/* <NavComponent navList={navList} /> */}
+      <NavComponent
+      navList={navList}
+      />
       <Routes>
         <Route path="/">
           {/*  Home Render */}
@@ -75,12 +79,12 @@ function App() {
           {/*  Restaurant Render off Params */}
           <Route
             path="/:id"
-            element={<Restaurants restaurants={restaurants} />}
+            element={<Restaurants navList={navList} restaurants={restaurants} />}
           />
         </Route>
       </Routes>
       {/*  Footer Render */}
-      <FooterComponent />
+      </div>
     </>
   );
 }
