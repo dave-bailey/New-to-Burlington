@@ -1,23 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import "./NavComponent.css";
 
-export default function NavComponent(props) {
-  //props contain array of styled navigation links from json get request
-  let navList = props.navList;
+export default function NavComponent({navList, home, closeX}) {
+
+
   return (
     <>
-      <nav>
+      <nav className="nav">
         {/* declaring a home route and rendering navlist */}
-        <ul id="navGroup">
-          <li>
-            <Link className="homeLink" to="/">
-              Home
-            </Link>
-          </li>
+
+        <ul>
+          <div className="navGroup">
+          <div className="homeContainer">
+          {home}
+            <div className="closeX">
+              {closeX}
+            </div>
+          </div>
           <div className="restaurantLinkContainer">
           {navList}
+          </div>
           </div>
         </ul>
       </nav>

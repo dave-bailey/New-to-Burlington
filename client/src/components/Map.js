@@ -2,14 +2,12 @@ import React from "react";
 import { MapContainer, TileLayer} from "react-leaflet";
 import "./Map.css";
 
-function Map(props) {
-
-  let markerList = props.markerList
+function Map({markerList}) {
 
   return (
   <>
     <div className="mapContainer">
-      {markerList.length && <MapContainer
+      {markerList.length && <MapContainer className="map"
         center={[44.4759, -73.2121]} //Burlington, VT 
         zoom={13}
         style={{ height: "600px", width: "600px" }}

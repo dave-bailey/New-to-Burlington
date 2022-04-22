@@ -3,13 +3,23 @@ import { useParams } from "react-router-dom";
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 
 import "./Restaurants.css";
+import NavComponent from "./NavComponent";
 
 export default function Restaurants(props) {
+
+
+  let openNav = () => {
+    props.setNavOpen(true);
+  } 
+
+
   // Component renders map with restaurant pin and json data passed as props from App component
 
 
   //filters restaurant data to find parameter that matches to render as content in component
   let { id } = useParams();
+
+  console.log(id);
 
   let restaurants = props.restaurants;
 
@@ -25,7 +35,7 @@ export default function Restaurants(props) {
 
   return (
     <>
-      {/* page container */}
+          {/* page container */}
       <div className="restaurantsBody">
         {/* restaurant content */}
         <div className="contentContainer">
@@ -39,7 +49,7 @@ export default function Restaurants(props) {
           {/* button navigation - restaurant list section */}
           <div className="buttonContainer">
             <div className="buttonTitleContainer">
-              <button className="button"></button>
+              <button className="button" onClick={openNav}></button>
               <h2 className="buttonTitle">restaurant list</h2>
             </div>
           </div>
@@ -56,8 +66,7 @@ export default function Restaurants(props) {
             {/* phone number */}
             <div className="descriptionContents">
               <h3 className="descriptionHeader">phone number:</h3>
-              <a href={currentRestaurant[0]?.phone}>
-              {currentRestaurant[0]?.phone}</a>
+              {currentRestaurant[0]?.phone}
             </div>
 
             {/* business hours */}

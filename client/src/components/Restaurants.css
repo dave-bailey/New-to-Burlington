@@ -1,14 +1,26 @@
 /* restaurant pages styling */
 
+@keyframes navOpacity {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
 /* page container */
 .restaurantsBody {
+  animation: 0.3s ease-in navOpacity;
+
   font-family: "Quicksand", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #faf9f6;
   width: 100%;
+  height: 100%;
 }
 
 /* map content column styling section */
@@ -17,8 +29,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80vw;
-  height: 40vh;
+  width: 80%;
+  height: 100%;
   background-color: #faf9f6;
 }
 
@@ -41,7 +53,6 @@
   align-items: center;
 }
 
-/* phone link */
 a {
   text-decoration: none;
   color: #2c3e50;
@@ -168,10 +179,14 @@ a {
 
 /* 640px to 1024px */
 @media screen and (min-width: 640px) {
-
   /* bump up fonts, border, padding, etc. */
+  .mapContainer {
+    min-height: 30rem;
+  }
+
   .headerContainer {
     font-size: 2.4rem;
+    height: 26vh;
   }
 
   .buttonTitle {
@@ -215,7 +230,6 @@ a {
 
 /* 1024px - plus */
 @media screen and (min-width: 1024px) {
-
   /* change flex direction and percentages, hide mobile footer  */
   .restaurantsBody {
     flex-direction: row;
