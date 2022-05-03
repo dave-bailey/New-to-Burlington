@@ -29,7 +29,7 @@ function App() {
     let isConnectedToServer = true;
 
     async function getData() {
-      let response = await fetch(`http://localhost:8080/`);
+      let response = await fetch(`https://git.heroku.com/new-to-burlington.git`);
 
       response = await response.json();
 
