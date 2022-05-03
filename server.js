@@ -5,8 +5,6 @@ const port = process.env.PORT || 8080;
 const cors = require("cors");
 require("dotenv").config();
 
-// const restaurants = require("./api/restaurants.json");
-
 const allowedOrigins = ["http://localhost:3000", "http://localhost:8080"];
 
 app.use(cors());
@@ -39,7 +37,7 @@ app.get("/", async (request, response) => {
 // app.get("*", function (request, response) {
 //   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 // });
-
+ 
 app.listen(port, () => {
   console.log(`You're listening on ${port}`);
 });
