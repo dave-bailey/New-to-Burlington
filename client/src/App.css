@@ -1,10 +1,6 @@
-/* Template App styles with imported google font */
-
 .appBody {
   font-size: 62.5%;
   margin: auto;
-  height: 100vh;
-
 }
 
 #header {

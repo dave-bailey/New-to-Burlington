@@ -3,13 +3,12 @@ import { useParams } from "react-router-dom";
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 
 import "./Restaurants.css";
-import NavComponent from "./NavComponent";
 
-export default function Restaurants(props) {
+export default function Restaurants({restaurants, setNavOpen}) {
 
 
   let openNav = () => {
-    props.setNavOpen(true);
+    setNavOpen(true);
   } 
 
 
@@ -20,8 +19,6 @@ export default function Restaurants(props) {
   let { id } = useParams();
 
   console.log(id);
-
-  let restaurants = props.restaurants;
 
   let currentRestaurant = restaurants.filter((restaurant) => {
     return restaurant.id === id;

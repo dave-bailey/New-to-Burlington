@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { Marker, Popup } from "react-leaflet";
 
 //Components
-import Restaurants from "./components/Restaurants.jsx";
-import Home from "./components/Home.jsx";
-import NavComponent from "./components/NavComponent.jsx";
+import Restaurants from "./Restaurants/Restaurants.jsx";
+import Home from "./Home/Home.jsx";
+import NavComponent from "./NavComponent/NavComponent.jsx";
 
 //CSS
 import "./App.css";
@@ -22,6 +22,7 @@ function App() {
 
   useEffect(() => {
     setNavOpen(false);
+    console.log("map change");
   }, [location]);
 
   useEffect(() => {
@@ -59,17 +60,11 @@ function App() {
   );
 
   let closeX = (
-    // <div onClick={closeNav}>
-    //    <button className="button"></button>
-    // </div>
-
-
-            <div className="closeButton">
-              <button className="button" onClick={closeNav}></button>
-              <h2 className="buttonTitle">close</h2>
-            </div>
+    <div className="closeButton">
+      <button className="button" onClick={closeNav}></button>
+      <h2 className="buttonTitle">close</h2>
+    </div>
   );
-
 
   const navList = restaurants?.map((navLink, index) => {
     return (
@@ -79,19 +74,11 @@ function App() {
     );
   });
 
-  //toggling state to render nav component on click event
-  let navCompVariable = null;
-
-  if (navOpen) {
-    return (navCompVariable = (
+    let navCompVariable = (
       <div className="nav">
-        <NavComponent 
-        closeX={closeX}
-        home={home} 
-        navList={navList} />
+        <NavComponent closeX={closeX} home={home} navList={navList} />
       </div>
-    ));
-  }
+    );
 
   //mapping over state to create list of restaurant markers for each restaurant instance
   const markerList = restaurants?.map((restaurant, index) => {
@@ -115,18 +102,19 @@ function App() {
     <>
       <div className="appBody">
 
-        {navCompVariable}
-
+        {navOpen ? navCompVariable :
         <Routes>
           <Route path="/">
             {/*  Home Render */}
             <Route
               index
-              element={<Home 
-                markerList={markerList} 
-                setNavOpen={setNavOpen} 
-                navList={navList}
-                />}
+              element={
+                <Home
+                  markerList={markerList}
+                  setNavOpen={setNavOpen}
+                  navList={navList}
+                />
+              }
             />
             {/*  Restaurant Render off Params */}
             <Route
@@ -139,8 +127,7 @@ function App() {
               }
             />
           </Route>
-        </Routes>
-        {/*  Footer Render */}
+        </Routes>}
       </div>
     </>
   );
