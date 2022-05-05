@@ -1,15 +1,12 @@
-//Methods
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Marker, Popup } from "react-leaflet";
 
-//Components
 import Restaurants from "./Restaurants/Restaurants.jsx";
 import Home from "./Home/Home.jsx";
 import NavComponent from "./NavComponent/NavComponent.jsx";
 
-//CSS
 import "./App.css";
 import "./normalizer.css";
 
@@ -22,7 +19,6 @@ function App() {
 
   useEffect(() => {
     setNavOpen(false);
-    console.log("map change");
   }, [location]);
 
   useEffect(() => {
@@ -45,7 +41,7 @@ function App() {
     };
   }, []);
 
-  //function to toggle nav state to false, hide nav
+  //functions and variables for navigation
   let closeNav = () => {
     setNavOpen(false);
     navCompVariable = null;
@@ -66,6 +62,7 @@ function App() {
     </div>
   );
 
+  //building nav list from restaurant data
   const navList = restaurants?.map((navLink, index) => {
     return (
       <li className="navLinks" onClick={closeNav} key={`navLink-${index}`}>
@@ -74,13 +71,13 @@ function App() {
     );
   });
 
-    let navCompVariable = (
-      <div className="nav">
-        <NavComponent closeX={closeX} home={home} navList={navList} />
-      </div>
-    );
+  let navCompVariable = (
+    <div className="nav">
+      <NavComponent closeX={closeX} home={home} navList={navList} />
+    </div>
+  );
 
-  //mapping over state to create list of restaurant markers for each restaurant instance
+  //creating map markers from restaurant data
   const markerList = restaurants?.map((restaurant, index) => {
     return (
       <li key={`restaurants-${index}`}>
@@ -101,33 +98,34 @@ function App() {
   return (
     <>
       <div className="appBody">
-
-        {navOpen ? navCompVariable :
-        <Routes>
-          <Route path="/">
-            {/*  Home Render */}
-            <Route
-              index
-              element={
-                <Home
-                  markerList={markerList}
-                  setNavOpen={setNavOpen}
-                  navList={navList}
-                />
-              }
-            />
-            {/*  Restaurant Render off Params */}
-            <Route
-              path="/:id"
-              element={
-                <Restaurants
-                  restaurants={restaurants}
-                  setNavOpen={setNavOpen}
-                />
-              }
-            />
-          </Route>
-        </Routes>}
+        {/* rendering navigation or home/restaurant page */}
+        {navOpen ? (
+          navCompVariable
+        ) : (
+          <Routes>
+            <Route path="/">
+              <Route
+                index
+                element={
+                  <Home
+                    markerList={markerList}
+                    setNavOpen={setNavOpen}
+                    navList={navList}
+                  />
+                }
+              />
+              <Route
+                path="/:id"
+                element={
+                  <Restaurants
+                    restaurants={restaurants}
+                    setNavOpen={setNavOpen}
+                  />
+                }
+              />
+            </Route>
+          </Routes>
+        )}
       </div>
     </>
   );

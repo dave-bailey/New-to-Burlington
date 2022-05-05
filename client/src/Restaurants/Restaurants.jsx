@@ -6,19 +6,12 @@ import "./Restaurants.css";
 
 export default function Restaurants({restaurants, setNavOpen}) {
 
-
   let openNav = () => {
     setNavOpen(true);
-  } 
-
-
-  // Component renders map with restaurant pin and json data passed as props from App component
-
+  }
 
   //filters restaurant data to find parameter that matches to render as content in component
   let { id } = useParams();
-
-  console.log(id);
 
   let currentRestaurant = restaurants.filter((restaurant) => {
     return restaurant.id === id;
@@ -32,11 +25,8 @@ export default function Restaurants({restaurants, setNavOpen}) {
 
   return (
     <>
-          {/* page container */}
       <div className="restaurantsBody">
-        {/* restaurant content */}
         <div className="contentContainer">
-          {/* header section */}
           <div className="headerContainer">
             <div className="titleContainer">
               <h1 className="header">{currentRestaurant[0]?.name}</h1>
@@ -111,7 +101,7 @@ export default function Restaurants({restaurants, setNavOpen}) {
             </MapContainer>
           )}
         </div>
-        {/* footer for non-desktop sizing */}
+        {/* footer for non-desktop */}
         <div className="mobileFooter">
           <h3>dave's restaurant blog</h3>
         </div>

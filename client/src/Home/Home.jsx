@@ -1,8 +1,7 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import "./Home.css"
+import "./Home.css";
 
-//Home page - header and renders map component with burlington coordinates
 export default function Home({ markerList, setNavOpen }) {
   let openNav = () => {
     setNavOpen(true);
@@ -25,12 +24,10 @@ export default function Home({ markerList, setNavOpen }) {
             </div>
           </div>
 
-
-        <div className="homeSubhead">Check out my favorite restaurants!</div>
-
+          <div className="homeSubhead">Check out my favorite restaurants!</div>
         </div>
-        {/* 
-        <Map markerList={markerList} /> */}
+
+        {/* Map includes all restaurants */}
         <div className="mapContainer">
           {markerList.length && (
             <MapContainer
