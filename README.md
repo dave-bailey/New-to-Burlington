@@ -2,8 +2,6 @@
 
 This project catalogs the local restaurants I have visited since moving to Burlington, VT.
 
-You can visit the live site [here](https://new-to-burlington.vercel.app/).
-
 # Technologies:
 
 * React
